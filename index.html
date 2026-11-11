@@ -1,36 +1,108 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DOT | 작은 시작, 큰 연결</title>
-  <style>
-    body {
-      background: #111111;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+<!doctype html><html lang="ko"><head><base target="_top"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DOT — 작은 시작, 큰 연결</title><style>
+:root{--bg:#101112;--fg:#f4f4f1;--muted:#a5a5a5;--line:#393a3d;--panel:#1c1d20}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid white;outline-offset:4px}a{color:inherit;text-decoration:none}.top{display:flex;justify-content:space-between;align-items:center;padding:22px 5%;border-bottom:1px solid var(--line)}.brand{font-size:27px;font-weight:900;letter-spacing:-.09em}.top a{font-size:11px;letter-spacing:.13em}.hero{padding:clamp(65px,10vw,130px) 5% 90px;min-height:670px;position:relative;overflow:hidden}.hero:after{content:'';position:absolute;right:-140px;top:20px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle at 34% 28%,#e9e9e9,#787b80 35%,#25272a 58%,transparent 72%);opacity:.32;pointer-events:none}.over{font-size:11px;letter-spacing:.26em;color:#bdbdbd}.hero h1{font-size:clamp(64px,13vw,175px);letter-spacing:-.1em;line-height:.91;margin:30px 0 24px;position:relative;z-index:1}.hero h1 span{display:block;color:#a6a7aa}.tagline{font-size:clamp(17px,2.4vw,26px);font-weight:700;margin:0 0 48px;position:relative;z-index:1}.questions{position:relative;z-index:1;display:flex;gap:10px;flex-wrap:wrap;max-width:850px}.questions button,.pill{background:transparent;color:var(--fg);border:1px solid #77787b;border-radius:100px;padding:15px 20px;font-size:14px;transition:.2s}.questions button:hover,.questions button.active,.pill.active{background:var(--fg);color:#151515}.answer{position:relative;z-index:1;max-width:700px;margin-top:24px;padding:25px 28px;background:#232428;border-left:3px solid #e9e9e9;line-height:1.8;display:none}.answer.show{display:block}.answer strong{display:block;font-size:20px;margin-bottom:8px}.wrap{max-width:1300px;margin:auto;padding:100px 5%}.eyebrow{color:#a6a6a8;font-size:12px;letter-spacing:.2em}.section-title{font-size:clamp(36px,6vw,80px);letter-spacing:-.07em;margin:18px 0}.sub{color:#b0b0b1;line-height:1.8;max-width:700px}.filters{display:flex;flex-wrap:wrap;gap:9px;margin:36px 0}.pill{padding:11px 18px;font-size:12px}.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}.project{padding:0;text-align:left;border:0;background:transparent;color:inherit;min-width:0}.cover{height:320px;background:radial-gradient(circle at 60% 45%,#7c7e83,#2b2d31 35%,#18191b 70%);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}.cover:after{content:'●';font-size:150px;color:#ffffff22}.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .35s}.project:hover img{transform:scale(1.04)}.project .meta{font-size:11px;color:#a7a7a7;margin-top:20px;letter-spacing:.1em}.project h3{font-size:clamp(24px,3vw,42px);margin:9px 0;letter-spacing:-.05em}.project p{font-size:13px;color:#b4b4b4;line-height:1.7}.empty{grid-column:1/-1;padding:35px;border:1px dashed #606166;color:#bbb}.detail{display:none;background:#18191b;border-top:1px solid var(--line)}.detail.show{display:block}.back{background:none;color:white;border:1px solid #777;border-radius:30px;padding:12px 20px;margin-bottom:35px}.detail h2{font-size:clamp(40px,7vw,90px);letter-spacing:-.07em;margin:18px 0}.description{white-space:pre-line;line-height:1.9;color:#c3c3c3;max-width:780px}.diagram{margin:55px 0 25px;background:radial-gradient(circle at center,#2d2f34,#1b1c20 65%);border:1px solid #3a3b40;padding:22px;border-radius:8px}.diagram svg{width:100%;height:auto;max-height:480px;display:block}.diagram line{stroke:#8c8d92;stroke-width:1.5;stroke-dasharray:5 5}.diagram .node circle{fill:#33363a;stroke:#c9c9ca;stroke-width:1.5}.diagram .node text{fill:white;font-size:15px;text-anchor:middle;dominant-baseline:central;pointer-events:none}.diagram .node[data-dept="미디어콘텐츠국"] text{font-size:11px}.diagram .node{cursor:pointer}.diagram .node.selected circle{fill:#e5e5e5}.diagram .node.selected text{fill:#171717}.diagram .center circle{fill:#e7e7e7}.diagram .center text{fill:#171717;font-weight:bold;font-size:20px;text-anchor:middle;dominant-baseline:middle}.hint{text-align:center;font-size:12px;color:#a9a9ac;margin-top:12px}.role-panel{padding:26px 30px;background:#26272b;border-left:3px solid #d4d4d4;min-height:110px}.role-panel h3{margin:0 0 10px;font-size:23px}.role-panel p{white-space:pre-line;color:#c8c8c8;line-height:1.8;margin:0}.role-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.role-list button{border:1px solid #777;background:transparent;color:#eee;border-radius:30px;padding:10px 15px}.role-list button.active{background:#eee;color:#111}.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}.photo{border:0;background:#27282b;color:#eee;padding:0;text-align:left}.photo img{width:100%;height:220px;object-fit:cover;display:block}.photo span{display:block;padding:14px;font-size:12px}.modal{position:fixed;inset:0;background:#000e;z-index:20;display:none;align-items:center;justify-content:center;padding:25px}.modal.show{display:flex}.modal-inner{max-width:1000px;width:100%;text-align:center}.modal img{max-width:100%;max-height:75vh;object-fit:contain}.modal button{display:block;margin:0 0 15px auto;background:#eee;color:#111;border:0;border-radius:20px;padding:10px 18px}.modal p{color:#ddd}footer{padding:55px 5%;border-top:1px solid #333;color:#999;font-size:12px;letter-spacing:.1em}@media(max-width:700px){.hero{min-height:600px}.projects{grid-template-columns:1fr}.cover{height:260px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.photo img{height:150px}.wrap{padding:75px 5%}.diagram{padding:5px}.diagram .node text{font-size:13px}}@media(max-width:400px){.gallery{grid-template-columns:1fr}.hero h1{font-size:62px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
-    h1 {
-      font-size: 80px;
-      letter-spacing: -3px;
-    }
+/* V2.1 motion layer — preserves V2 layout */
+.hero:after{animation:dotBreath 9s ease-in-out infinite;transform-origin:65% 45%}
+@keyframes dotBreath{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-16px,12px,0) scale(1.065)}}
+.hero h1{animation:heroReveal .95s cubic-bezier(.2,.8,.2,1) both}
+.tagline{animation:heroReveal 1s .16s both}.questions{animation:heroReveal 1s .28s both}
+@keyframes heroReveal{from{opacity:0;transform:translateY(30px);filter:blur(7px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.questions button,.pill,.project,.photo,.role-list button{transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,color .3s,border-color .3s,opacity .3s}
+@media(hover:hover){.questions button:hover,.pill:hover{transform:translateY(-3px)}.project:hover{transform:translateY(-7px)}.project:hover .cover img{transform:scale(1.045)}.photo:hover img{transform:scale(1.035)}}
+.cover{overflow:hidden}.cover img,.photo img{transition:transform .7s cubic-bezier(.2,.8,.2,1)}.photo{overflow:hidden}
+.answer.show{animation:answerReveal .45s ease both}@keyframes answerReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.motion-reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}.motion-reveal.motion-visible{opacity:1;transform:translateY(0)}
+.diagram svg line{stroke-dasharray:520;stroke-dashoffset:520;animation:drawConnection 1.1s cubic-bezier(.2,.8,.2,1) forwards}.diagram svg line:nth-child(2){animation-delay:.12s}.diagram svg line:nth-child(3){animation-delay:.24s}.diagram svg line:nth-child(4){animation-delay:.36s}.diagram svg line:nth-child(5){animation-delay:.48s}
+@keyframes drawConnection{to{stroke-dashoffset:0}}
+.diagram svg .node{transform-box:fill-box;transform-origin:center;animation:nodeAppear .55s cubic-bezier(.15,.9,.3,1.2) both}.diagram svg .node:nth-child(2){animation-delay:.12s}.diagram svg .node:nth-child(4){animation-delay:.24s}.diagram svg .node:nth-child(6){animation-delay:.36s}.diagram svg .node:nth-child(8){animation-delay:.48s}.diagram svg .node:nth-child(10){animation-delay:.6s}
+@keyframes nodeAppear{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
+.diagram .node circle{transition:fill .25s,stroke .25s,stroke-width .25s}.diagram .node.selected circle{stroke:#fff;stroke-width:3}.diagram svg line.highlight{stroke:#f2f2f2;stroke-width:3;stroke-dasharray:none;stroke-dashoffset:0;animation:none;filter:drop-shadow(0 0 4px #ffffff55)}.diagram .node:focus-visible circle{stroke:#fff;stroke-width:3}
+.role-panel.motion-pop{animation:answerReveal .4s ease both}
+.motion-indicator{position:absolute;bottom:20px;right:5%;z-index:2;border:1px solid #696a6d;background:#18191b;color:#ddd;border-radius:30px;padding:9px 14px;font-size:11px;letter-spacing:.03em;cursor:pointer}
+@media(prefers-reduced-motion:reduce){.hero:after,.hero h1,.tagline,.questions,.diagram svg line,.diagram svg .node,.answer.show,.role-panel.motion-pop{animation:none!important}.motion-reveal{opacity:1;transform:none;transition:none}.cover img,.photo img{transition:none}}
+@media(prefers-reduced-motion:reduce){.diagram svg line.highlight{filter:none}}
+body.motion-paused .hero:after,body.motion-paused .diagram svg line,body.motion-paused .diagram svg .node{animation-play-state:paused}
 
-    p {
-      text-align: center;
-      color: #aaa;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>DOT.</h1>
-    <p>작은 시작, 큰 연결</p>
-  </main>
-</body>
-</html>
+/* Constellation layer: original layout and visual language preserved */
+.hero #constellation-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.8}
+.hero:after{opacity:.18;z-index:0}
+.hero .over,.hero h1,.hero .tagline,.hero .questions,.hero .answer{position:relative;z-index:1}
+.hero .motion-indicator{z-index:3}
+@media(prefers-reduced-motion:reduce){.hero #constellation-canvas{opacity:.55}}
+
+/* Custom main circle — supplied DOT artwork */
+.hero:after{background:url("dot-circle.png") center/contain no-repeat!important;right:-125px;top:25px;width:min(48vw,540px);height:min(48vw,540px);border-radius:50%;opacity:.84!important;filter:none;z-index:0}
+@media(max-width:700px){.hero:after{width:340px;height:340px;right:-160px;top:85px;opacity:.55!important}}
+</style></head><body><header class="top"><a href="#home" class="brand">DOT.</a><a href="#archive">PROJECT ARCHIVE ↗</a></header><section class="hero" id="home"><canvas id="constellation-canvas" aria-hidden="true"></canvas><div class="over">20TH MEDIA & COMMUNICATION STUDENT COUNCIL · 2026</div><h1>SMALL<br><span>DOTS.</span><br>BIG LINKS.</h1><p class="tagline">작은 시작, 큰 연결.</p><div class="questions"><button type="button" data-q="about">DOT는 어떤 학생회야?</button><button type="button" data-q="events">올해 어떤 행사를 만들었어?</button><button type="button" data-q="roles">각 국은 어떤 일을 했어?</button><button type="button" data-q="gallery">결과물도 볼 수 있어?</button></div><div class="answer" id="answer" aria-live="polite"></div><button class="motion-indicator" id="motion-toggle" type="button" aria-pressed="false">모션 일시정지 Ⅱ</button></section><main><section class="wrap" id="archive"><div class="eyebrow">01 — OUR CONNECTIONS</div><h2 class="section-title">MADE<br>TOGETHER.</h2><p class="sub">각각의 작은 시작이 모여 완성된 순간들. 행사를 선택하고, 그 뒤에 이어진 다섯 국의 이야기를 만나보세요. (현재 Vercel 버전은 예시 데이터입니다.)</p><div class="filters" id="filters"><button class="pill active" type="button">전체</button></div><div class="projects" id="projects"><div class="empty">행사 기록을 불러오는 중입니다…</div></div></section><section class="detail" id="detail"><div class="wrap"><button class="back" id="back" type="button">← 모든 행사 보기</button><div class="eyebrow" id="detail-meta"></div><h2 id="detail-title"></h2><p class="description" id="detail-desc"></p><div class="eyebrow" style="margin-top:75px">02 — THE CONNECTION</div><h3 class="section-title" style="font-size:clamp(30px,5vw,56px)">ONE EVENT.<br>MANY DOTS.</h3><p class="sub">점 하나를 선택하면, 그 국이 이 행사에 남긴 역할과 성과를 볼 수 있어요.</p><div class="diagram"><svg id="network" viewBox="0 0 760 460" role="group" aria-label="행사에 참여한 국들의 연결도"></svg><p class="hint">● 점을 누르면 해당 국의 연결선과 기여 내용이 강조됩니다</p></div><div class="role-panel" id="role-panel" aria-live="polite"><h3>국을 선택해 주세요</h3><p>참여한 국을 선택하면 담당 업무가 표시됩니다.</p></div><div class="role-list" id="role-list"></div><div class="eyebrow" style="margin-top:85px">03 — PROJECT GALLERY</div><h3 class="section-title" style="font-size:clamp(30px,5vw,56px)">THE ARCHIVE.</h3><div class="gallery" id="gallery"></div></div></section></main><footer>DOT · 작은 시작, 큰 연결.<br><br>제20대 미디어커뮤니케이션학과 학생회</footer><div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="이미지 크게 보기"><div class="modal-inner"><button type="button" id="close-modal">닫기 ✕</button><img id="modal-img" alt=""><p id="modal-caption"></p></div></div><script>
+(function(){const $=id=>document.getElementById(id);const depts=['회장단','기획국','복지국','미디어콘텐츠국','디자인국'];let data={projects:[],contributions:[],gallery:[]},filter='전체';const el=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n};const clear=n=>n.replaceChildren();const safe=u=>/^https:\/\//i.test(u||'')?u:null;const scroll=id=>$(id).scrollIntoView({behavior:'smooth',block:'start'});const answers={about:['다섯 개의 점, 하나의 DOT.','회장단, 기획국, 복지국, 미디어콘텐츠국, 디자인국이 연결되어 학우들의 일상과 행사를 만들어가는 제20대 미디어커뮤니케이션학과 학생회입니다.'],events:['우리의 프로젝트를 살펴볼래?','아래 프로젝트 아카이브에서 행사를 선택하면 기획부터 기록까지, 함께 만든 과정을 확인할 수 있어요.'],roles:['행사 하나에도 여러 개의 점이 있어.','행사 상세 화면의 연결도를 눌러 각 국이 맡은 역할을 확인해 보세요.'],gallery:['결과물도 한곳에 모았어.','각 행사 상세 화면에서 사진과 디자인 결과물을 갤러리로 볼 수 있어요.']};document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-q]').forEach(x=>x.classList.toggle('active',x===b));const a=$('answer');clear(a);a.append(el('strong','',answers[b.dataset.q][0]),el('div','',answers[b.dataset.q][1]));if(b.dataset.q==='events'||b.dataset.q==='gallery'){const go=el('button','pill','행사 아카이브로 이동 ↗');go.style.marginTop='16px';go.onclick=()=>scroll('archive');a.append(go)}a.classList.add('show')}));function render(){clear($('filters'));['전체',...new Set(data.projects.map(p=>p.category).filter(Boolean))].forEach(c=>{let b=el('button','pill'+(c===filter?' active':''),c);b.type='button';b.onclick=()=>{filter=c;render()};$('filters').append(b)});clear($('projects'));const list=data.projects.filter(p=>filter==='전체'||p.category===filter);if(!list.length){$('projects').append(el('div','empty','등록된 행사가 없습니다. 스프레드시트의 Projects 시트에 공개 행사를 등록해 주세요.'));return}list.forEach((p,i)=>{let b=el('button','project');b.type='button';const cover=el('div','cover');if(safe(p.coverUrl)){const im=el('img');im.src=p.coverUrl;im.alt=p.title+' 대표 이미지';im.loading='lazy';cover.append(im)}b.append(cover,el('div','meta',String(i+1).padStart(2,'0')+' / '+(p.date||'')+' / '+(p.category||'PROJECT')),el('h3','',p.title),el('p','',p.summary||''));b.onclick=()=>open(p);$('projects').append(b)})}function open(p){$('detail-meta').textContent=(p.date||'')+' · '+(p.category||'PROJECT');$('detail-title').textContent=p.title;$('detail-desc').textContent=p.description||p.summary||'';const contributions=data.contributions.filter(x=>x.projectId===p.id);const active=depts.filter(d=>contributions.some(x=>x.department===d));clear($('network'));clear($('role-list'));const svg=$('network');const ns='http://www.w3.org/2000/svg';function svgEl(tag,attrs){const n=document.createElementNS(ns,tag);Object.keys(attrs).forEach(k=>n.setAttribute(k,attrs[k]));return n}function select(d){document.querySelectorAll('#network line[data-dept]').forEach(n=>n.classList.toggle('highlight',n.dataset.dept===d));document.querySelectorAll('#network .node').forEach(n=>n.classList.toggle('selected',n.dataset.dept===d));document.querySelectorAll('#role-list button').forEach(n=>n.classList.toggle('active',n.textContent===d));const items=contributions.filter(x=>x.department===d);clear($('role-panel'));$('role-panel').append(el('h3','',d+'의 연결'),el('p','',items.map(x=>(x.role?x.role+' — ':'')+(x.details||'')).join('\n\n')||'등록된 업무가 없습니다.'))}if(active.length){active.forEach((d,i)=>{const angle=(-Math.PI/2)+i*2*Math.PI/active.length;const x=380+Math.cos(angle)*245,y=230+Math.sin(angle)*160;const link=svgEl('line',{x1:380,y1:230,x2:x,y2:y,'data-dept':d});svg.append(link);const g=svgEl('g',{class:'node',tabindex:'0',role:'button','aria-label':d+'의 역할 보기'});g.dataset.dept=d;g.append(svgEl('circle',{cx:x,cy:y,r:54}));const t=svgEl('text',{x:x,y:y,'text-anchor':'middle','dominant-baseline':'central', 'font-size':d==='미디어콘텐츠국'?'11':'15'});t.textContent=d;g.append(t);g.addEventListener('click',()=>select(d));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(d)}});svg.append(g);const b=el('button','',d);b.type='button';b.onclick=()=>select(d);$('role-list').append(b)});const g=svgEl('g',{class:'center'});g.append(svgEl('circle',{cx:380,cy:230,r:68}));const t=svgEl('text',{x:380,y:230,'text-anchor':'middle','dominant-baseline':'central','font-size':'20','font-weight':'700'});t.textContent='PROJECT';g.append(t);svg.append(g);select(active[0])}else{$('role-panel').replaceChildren(el('p','','아직 이 행사의 국별 역할이 등록되지 않았습니다.'));svg.append(svgEl('circle',{cx:380,cy:230,r:60,fill:'#ddd'}))}clear($('gallery'));const pics=data.gallery.filter(x=>x.projectId===p.id);if(!pics.length)$('gallery').append(el('div','empty','아직 등록된 이미지가 없습니다. Gallery 시트에 이미지 URL을 입력해 주세요.'));pics.forEach(g=>{const url=safe(g.imageUrl);if(!url)return;const b=el('button','photo');b.type='button';const im=el('img');im.src=url;im.alt=g.title||'행사 이미지';im.loading='lazy';b.append(im,el('span','',(g.title||'기록')+' · '+(g.department||'')));b.onclick=()=>{$('modal-img').src=url;$('modal-img').alt=g.title||'행사 이미지';$('modal-caption').textContent=(g.title||'')+(g.caption?' — '+g.caption:'');$('modal').classList.add('show');$('close-modal').focus()};$('gallery').append(b)});$('detail').classList.add('show');scroll('detail')}$('back').onclick=()=>{$('detail').classList.remove('show');scroll('archive')};function closeModal(){$('modal').classList.remove('show');$('modal-img').removeAttribute('src')}$('close-modal').onclick=closeModal;$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});if(typeof google!=='undefined'&&google.script&&google.script.run){google.script.run.withSuccessHandler(d=>{data=d||data;render()}).withFailureHandler(e=>{$('projects').replaceChildren(el('div','empty','데이터 로드 실패: '+(e.message||'관리자에게 문의해 주세요.')))}).getSiteData()}else{data={projects:[
+{id:'event01',title:'커뮤니의 날',date:'2026',category:'교류',summary:'학과 구성원이 함께하는 연결의 순간',description:'학생회 행사 소개 및 활동 기록을 이곳에 정리합니다. 실제 내용은 데이터 연동 후 업데이트됩니다.'},
+{id:'event02',title:'진로 탐색 주간',date:'2026',category:'진로',summary:'미디어 분야의 다양한 진로를 만나는 시간',description:'진로 탐색 주간의 프로그램과 성과를 소개하는 자리입니다. 실제 내용은 데이터 연동 후 업데이트됩니다.'},
+{id:'event03',title:'학술문화제',date:'2026',category:'학술·문화',summary:'우리의 질문과 생각이 만나는 자리',description:'학술문화제의 기록을 소개하는 자리입니다. 실제 내용은 데이터 연동 후 업데이트됩니다.'},
+{id:'event04',title:'커뮤니의 밤',date:'2026',category:'교류',summary:'재학생과 동문이 연결되는 시간',description:'동문과 재학생이 함께 만드는 연결의 기록입니다. 실제 내용은 데이터 연동 후 업데이트됩니다.'}
+],contributions:[],gallery:[]};render()}})();
+
+/* V2.1 progressive enhancements — no backend changes */
+(function(){
+ const toggle=document.getElementById('motion-toggle');
+ if(toggle){toggle.addEventListener('click',()=>{const paused=document.body.classList.toggle('motion-paused');toggle.textContent=paused?'모션 재생 ▶':'모션 일시정지 Ⅱ';toggle.setAttribute('aria-pressed',String(paused));});}
+ const targets=document.querySelectorAll('#archive .eyebrow,#archive .section-title,#archive .sub,#detail .eyebrow,#detail .section-title');
+ if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+   const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('motion-visible');observer.unobserve(e.target);}})},{threshold:.12});
+   targets.forEach(node=>{node.classList.add('motion-reveal');observer.observe(node);});
+ }
+ const panel=document.getElementById('role-panel');
+ if(panel&&'MutationObserver' in window){new MutationObserver(()=>{panel.classList.remove('motion-pop');void panel.offsetWidth;panel.classList.add('motion-pop')}).observe(panel,{childList:true});}
+})();
+
+/* Interactive constellation — pointer-reactive, pauseable, responsive */
+(function(){
+ const canvas=document.getElementById('constellation-canvas');
+ if(!canvas)return;
+ const ctx=canvas.getContext('2d');
+ if(!ctx)return;
+ const hero=canvas.parentElement;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+ const pointer={x:-9999,y:-9999};
+ let dots=[],width=0,height=0,dpr=1,raf=0,paused=false;
+ function resize(){
+   const box=hero.getBoundingClientRect();width=box.width;height=box.height;
+   dpr=Math.min(window.devicePixelRatio||1,2);
+   canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
+   ctx.setTransform(dpr,0,0,dpr,0,0);
+   const count=Math.min(75,Math.max(22,Math.floor(width*height/16000)));
+   dots=Array.from({length:count},()=>({x:Math.random()*width,y:Math.random()*height,
+     vx:(Math.random()-.5)*.36,vy:(Math.random()-.5)*.36,r:.9+Math.random()*1.5}));
+   draw();
+ }
+ function draw(){
+   ctx.clearRect(0,0,width,height);
+   for(let i=0;i<dots.length;i++){
+     const p=dots[i];
+     for(let j=i+1;j<dots.length;j++){
+       const q=dots[j],distance=Math.hypot(p.x-q.x,p.y-q.y);
+       if(distance<130){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
+         ctx.strokeStyle='rgba(218,221,231,'+(0.21*(1-distance/130))+')';ctx.lineWidth=.8;ctx.stroke();}
+     }
+     const dist=Math.hypot(p.x-pointer.x,p.y-pointer.y);
+     if(dist<170){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(pointer.x,pointer.y);
+       ctx.strokeStyle='rgba(242,243,250,'+(0.43*(1-dist/170))+')';ctx.lineWidth=.9;ctx.stroke();}
+     ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(238,239,245,.66)';ctx.fill();
+   }
+ }
+ function animate(){
+   if(paused||reduce.matches){raf=0;return;}
+   dots.forEach(p=>{p.x+=p.vx;p.y+=p.vy;
+     if(p.x<0||p.x>width)p.vx*=-1;if(p.y<0||p.y>height)p.vy*=-1;});
+   draw();raf=requestAnimationFrame(animate);
+ }
+ function sync(){paused=document.body.classList.contains('motion-paused');cancelAnimationFrame(raf);raf=0;draw();if(!paused&&!reduce.matches)animate();}
+ hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();pointer.x=e.clientX-r.left;pointer.y=e.clientY-r.top;if(paused||reduce.matches)draw();});
+ hero.addEventListener('pointerleave',()=>{pointer.x=-9999;pointer.y=-9999;if(paused||reduce.matches)draw();});
+ const toggle=document.getElementById('motion-toggle');if(toggle)toggle.addEventListener('click',sync);
+ if(reduce.addEventListener)reduce.addEventListener('change',sync);
+ window.addEventListener('resize',resize,{passive:true});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0;}else sync();});
+ resize();sync();
+})();
+</script></body></html>
+
